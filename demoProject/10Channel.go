@@ -6,20 +6,20 @@ import (
 	"time"
 )
 
-var ch =make(chan string,10)//创建大小为10的缓冲通道
+var ch = make(chan string, 10) //创建大小为10的缓冲通道
 
-func download1(url string){
-	fmt.Println("strat to download",url)
+func download1(url string) {
+	fmt.Println("strat to download", url)
 	time.Sleep(time.Second)
-	ch<-url//将URL传给信道
+	ch <- url //将URL传给信道
 }
-func main(){
-	for i:=0;i<3;i++ {
-		go download1("a.com/"+string(i+'0'))
+func main() {
+	for i := 0; i < 3; i++ {
+		go download1("a.com/" + string(i+'0'))
 	}
-	for i:=0;i<3;i++ {
-		msg:=<-ch//等待信道返回的消息
-		fmt.Println("finsh",msg)
+	for i := 0; i < 3; i++ {
+		msg := <-ch //等待信道返回的消息
+		fmt.Println("finsh", msg)
 	}
 	fmt.Println("Done!")
 }

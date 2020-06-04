@@ -10,18 +10,17 @@ import (
 
 var wg sync.WaitGroup
 
-func download(url string)  {
-	fmt.Println("start to download",url)
-	time.Sleep(1*time.Second)//延时1秒，模拟耗时操作
+func download(url string) {
+	fmt.Println("start to download", url)
+	time.Sleep(1 * time.Second) //延时1秒，模拟耗时操作
 	wg.Done()
 }
 
-func main(){
-	for i:=0;i<3;i++ {
-		wg.Add(1)//添加到被等待的线程组里面
-		go download("a.com"+string(i+'0'))
+func main() {
+	for i := 0; i < 3; i++ {
+		wg.Add(1) //添加到被等待的线程组里面
+		go download("a.com" + string(i+'0'))
 	}
-	wg.Wait()//确保以上操作并发执行完以后再执行下面操作
+	wg.Wait() //确保以上操作并发执行完以后再执行下面操作
 	fmt.Println("Done!")
 }
-
