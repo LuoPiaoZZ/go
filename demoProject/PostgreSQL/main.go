@@ -59,7 +59,7 @@ func connectDB() (c *appContext, errMessage error) {
 }
 //添加
 func (c *appContext)insert(sqlStr string)  {
-	err:=c.db.QueryRow(sqlStr)
+	_,err :=c.db.Query(sqlStr)
 	if err!=nil{
 		log.Fatal(err)
 	}
