@@ -1,0 +1,14 @@
+testkey=12345
+testarray=[1,2,3,1,2]
+
+[postgresql]
+    userName="postgres"
+    passWord="admin"
+
+
+
+[a]
+    [a.b]
+        a1="b1"
+    [a.c]
+        a1="c1"
