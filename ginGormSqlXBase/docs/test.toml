@@ -1,0 +1,15 @@
+listen=":8081"
+
+[dbservers]
+    [dbservers.mydb]
+        host = "127.0.0.1"
+        port = 5432
+        dbname = "mydb"
+        user = "postgres"
+        password = "admin"
+    [dbservers.mydb1]
+        host = "127.0.0.1"
+        port = 5432
+        dbname = "mydb1"
+        user = "postgres"
+        password = "admin"
