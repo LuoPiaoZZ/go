@@ -5,4 +5,5 @@ const (
 	MyDB      = "mydb"
 	MyDB1     = "mydb1"
 	StrConfig = "config"
+	Cache     = "cache"
 )

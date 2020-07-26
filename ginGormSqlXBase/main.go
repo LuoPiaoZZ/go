@@ -39,4 +39,8 @@ func initDB(tomlConfig *config.Config) {
 
 	models.NewMyDB1Conn(define.MyDB1, tomlConfig)
 
+	models.NewRedisConn(define.Cache,tomlConfig)
+
+
+
 }

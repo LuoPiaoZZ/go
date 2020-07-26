@@ -47,11 +47,17 @@ func InitEngine() (engine *gin.Engine, tomlConfig *config.Config, err error) {
 
 	// 测试1分组
 	test1Group(engine)
-
 	// 测试2分组
 	test2Group(engine)
 
+	test3Group(engine)
+
 	return engine, tomlConfig, nil
+}
+func test3Group(engine *gin.Engine) {
+	//获取redis缓存
+	cache(engine)
+
 }
 
 func test2Group(engine *gin.Engine) {

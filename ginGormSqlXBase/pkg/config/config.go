@@ -14,6 +14,7 @@ var (
 type Config struct {
 	Listen    string              `toml:"listen"`
 	DBServers map[string]DBServer `toml:"dbservers"`
+	RedisServers map[string]RedisServer `toml:"redisservers"`
 }
 
 // DBServer 表示DB服务器配置
@@ -23,6 +24,13 @@ type DBServer struct {
 	DBName   string `toml:"dbname"`
 	User     string `toml:"user"`
 	Password string `toml:"password"`
+}
+
+//RedisServer 表示 redis 服务器配置
+type RedisServer struct {
+	Addr         string                 `toml:"addr"`
+	Password     string                 `toml:"password"`
+	DB           int                    `toml:"middlewares"`
 }
 
 // UnmarshalConfig 解析toml配置
@@ -36,6 +44,12 @@ func UnmarshalConfig(tomlfile string) (*Config, error) {
 // DBServerConf 获取数据库配置
 func (c Config) DBServerConf(key string) (DBServer, bool) {
 	s, ok := c.DBServers[key]
+	return s, ok
+}
+
+//RedisServerConf 获取数据库配置
+func (c Config) RedisServerConf(key string) (RedisServer, bool) {
+	s, ok := c.RedisServers[key]
 	return s, ok
 }
 
