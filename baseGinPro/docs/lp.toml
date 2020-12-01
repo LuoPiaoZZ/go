@@ -1,0 +1,16 @@
+listen = ":80"
+[dbservers]
+    [dbservers.lpdb]
+        host = "127.0.0.1"
+        port = 5432
+        dbname = "lpdb"
+        user = "postgres"
+        password = "postgres"
+
+[redisservers]
+    [redisservers.lpcache]
+        addr = "127.0.0.1:6379"
+        db = 0
+    [redisservers.usercache]
+        addr = "127.0.0.1:6379"
+        db = 1
