@@ -1,0 +1,28 @@
+syntax = "proto3";//版本声明，使用v3版本
+
+package pb;//包名
+
+//请求信息
+
+message AddReq{
+  int32 a=1;
+  int32 b=2;
+}
+
+message UserReq{
+  string user=1;
+  int32 age=2;
+}
+
+message ReplyResp{
+  string respStr=1;
+}
+
+//方法
+service TestServer{
+  rpc GetAddRes(AddReq) returns (ReplyResp){}
+  rpc GetUserRes(UserReq) returns(ReplyResp){}
+}
+
+
+
