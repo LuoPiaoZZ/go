@@ -28,7 +28,7 @@ CREATE USER qipai WITH PASSWORD 'xxxxx';
 
 psql -d postgres
 pg_dump -U postgres statdb >/tmp/dbsql/b.sql
-psql -d statdb -U qipai  -f statdb.sql
+psql -d statdb -U xxxx  -f statdb.sql
 
 pg_dump -U postgres statdb >/tmp/b.sql
 
